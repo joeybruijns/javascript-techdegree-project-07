@@ -2,6 +2,18 @@
 # React Gallery App
 ### Javascript Techdegree - Project 07
 
+**Important information to run this app:**
+You need a Flickr API key to run this app yourself. Create an Yahoo account an apply for a non-commercial API key.
+
+Store this key in a file called config.js in the src directory of the app. The format for the config.js file should be like this:
+```
+const APIKey = 'YOUR API KEY HERE';
+export default APIKey;
+```
+Open this project in your favorite editor and run `npm install` to install the node modules.
+
+After this you can run the app with the `npm start` commmand.
+
 **Instruction:**
 For this project, we'll use the very popular and in-demand React library to create an image gallery app. With the help of this powerful "MVC" (Model, View, Controller) library, the app will be built in the style of modern single page applications to keep it fast, modular, and in sync with current web development trends.
 
