@@ -19,6 +19,10 @@ a {
   text-decoration: none;
 }
 
+.app-header {
+  display: flex;
+}
+
 .search-form {
   max-width: 460px;
   display: flex;
@@ -43,6 +47,14 @@ input {
   border-right: none;
   border-radius: 0.35em 0 0 0.35em;
   outline: none;
+}
+
+.row {
+  justify-content: center;
+}
+
+.main-nav ul {
+  margin: 0 auto;
 }
 
 .main-nav li {
