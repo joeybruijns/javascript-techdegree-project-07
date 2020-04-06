@@ -35,9 +35,9 @@ class SearchNavigation extends Component {
         <Row>
           <ul className="main-nav">
             <Row>
-              <Col xs={12} md={4}><li><NavLink to='#'>Cats</NavLink></li></Col>
-              <Col xs={12} md={4}><li><NavLink to='#'>Dogs</NavLink></li></Col>
-              <Col xs={12} md={4}><li><NavLink to='#'>Computers</NavLink></li></Col>
+              <Col xs={12} md={4}><li><NavLink to='#'>Forests</NavLink></li></Col>
+              <Col xs={12} md={4}><li><NavLink to='#'>Mountains</NavLink></li></Col>
+              <Col xs={12} md={4}><li><NavLink to='#'>Sunsets</NavLink></li></Col>
             </Row>
           </ul>
         </Row>

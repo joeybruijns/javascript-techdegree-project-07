@@ -10,6 +10,8 @@ import APIKey from './config';
 
 import SearchNavigation from './Components/SearchNavigation';
 import Home from './Components/Home';
+import ImageList from './Components/ImageList';
+import NotFound from './Components/NotFound';
 
 const App = () => (
   <BrowserRouter>
@@ -18,7 +20,10 @@ const App = () => (
         <SearchNavigation />
       </header>
       <div className="main-content">
-        <Home />
+        <Switch>
+          <Route path="/" component={ImageList} />
+          <Route component={NotFound}></Route>
+        </Switch>
       </div>
     </div>
   </BrowserRouter>
