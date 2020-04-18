@@ -17,7 +17,7 @@ import Error404 from './Components/Error404'
 // Global variables for using the Flickr API
 const Flickr = require('flickr-sdk');
 const api = require('./config.js');
-const flickr = new Flickr(`process.env.${api.default}`);
+const flickr = new Flickr(`${api.default}`);
 
 class App extends Component {
 
@@ -39,44 +39,41 @@ class App extends Component {
     this.performSearch('cats');
     this.performSearch('dog');
     this.performSearch('horses');
-    window.onpopstate = function(event) {
-      console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
-    };
   }
 
   // Perform the requested search or display the default images when clicked
   performSearch = (search) => {
-    unsplash.search.photos(search, 1, 24)
-      .then(toJson)
-      .then(json => {
-        if (search === 'cats') {
-          this.setState({
-            catImages: json.results,
-            loading: false
-          });
-        } else if (search === 'dog') {
-          this.setState({
-            dogImages: json.results,
-            loading: false
-          });
-        } else if (search === 'horses') {
-          this.setState({
-            horseImages: json.results,
-            loading: false
-          });
-        } else {
-          this.setState({
-            imageSearch: json.results,
-            searchText: search,
-            loading: false
-          });
-        }
-      })
-      .catch(error => {
-        console.log('Error fetching and parsing data', error);
-      });
+    flickr.photos.search({
+      text: search
+    }).then(res => {
+      console.log(res.body);
+      if (search === 'cats') {
+        this.setState({
+          catImages: res.body,
+          loading: false
+        });
+      } else if (search === 'dog') {
+        this.setState({
+          dogImages: res.body,
+          loading: false
+        });
+      } else if (search === 'horses') {
+        this.setState({
+          horseImages: res.body,
+          loading: false
+        });
+      } else {
+        this.setState({
+          imageSearch: res.body,
+          searchText: search,
+          loading: false
+        });
+      }
+    }).catch(error => {
+      console.log('Error fetching and parsing data', error);
+    });
   }
-
+  
   render() {
     return (
       <BrowserRouter>
