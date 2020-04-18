@@ -20,7 +20,7 @@ a {
 }
 
 .app-header {
-  display: flex;
+  display: block;
 }
 
 .search-form {
@@ -49,8 +49,11 @@ input {
   outline: none;
 }
 
-.row {
-  justify-content: center;
+.main-content {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .main-nav ul {
@@ -63,6 +66,7 @@ input {
 }
 
 .main-nav a {
+  text-decoration: none;
   display: block;
   background: #438bbd;
   border-radius: 3px;
@@ -76,10 +80,14 @@ input {
   background-color: #275270;
 }
 
+.photo-container {
+  margin: 0 10px;
+}
+
 .photo-container ul {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   -ms-align-items: flex-start;
   align-items: flex-start;
 }
@@ -88,6 +96,7 @@ input {
   width: 220px;
   height: 165px;
   overflow: hidden;
+  margin-right: 15px;
   margin-bottom: 15px;
 }
 
@@ -110,8 +119,20 @@ input {
     padding-top: 2em;
   }
 
+  .photo-container {
+    margin: 0 5px;
+  }
+
   .photo-container li {
-    margin: auto;
+    margin: 15px;
+  }
+
+  .photo-container ul li {
+    margin-right: 5px;
+  }
+
+  .main-nav a {
+    border-radius: 0px;
   }
 }
 
@@ -132,6 +153,6 @@ input {
   
   .main-nav li {
     margin: 10px;
-    width: 100px;
+    width: 150px;
   }
 }
