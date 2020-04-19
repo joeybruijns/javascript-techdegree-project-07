@@ -15,8 +15,8 @@ import ImageList from './Components/ImageList';
 import Error404 from './Components/Error404'
 
 // Global variables for using the Flickr API
-const Flickr = require('flickr-sdk');
 const api = require('./config.js');
+const Flickr = require('flickr-sdk');
 const flickr = new Flickr(`${api.default}`);
 
 class App extends Component {
@@ -35,36 +35,36 @@ class App extends Component {
 
   // Mount components for the search function and the defaults
   componentDidMount() {
-    this.performSearch();
-    this.performSearch('cats');
-    this.performSearch('dog');
+    this.performSearch('cats, cats, kitten, kittens');
+    this.performSearch('dog, dogs, puppy, puppies');
     this.performSearch('horses');
   }
 
   // Perform the requested search or display the default images when clicked
   performSearch = (search) => {
     flickr.photos.search({
-      text: search
+      text: search,
+      tags: search,
+      per_page: 24
     }).then(res => {
-      console.log(res.body);
-      if (search === 'cats') {
+      if (search === 'cats, cats, kitten, kittens') {
         this.setState({
-          catImages: res.body,
+          catImages: res.body.photos.photo,
           loading: false
         });
-      } else if (search === 'dog') {
+      } else if (search === 'dog, dogs, puppy, puppies') {
         this.setState({
-          dogImages: res.body,
+          dogImages: res.body.photos.photo,
           loading: false
         });
       } else if (search === 'horses') {
         this.setState({
-          horseImages: res.body,
+          horseImages: res.body.photos.photo,
           loading: false
         });
       } else {
         this.setState({
-          imageSearch: res.body,
+          imageSearch: res.body.photos.photo,
           searchText: search,
           loading: false
         });
